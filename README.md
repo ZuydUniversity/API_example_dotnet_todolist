@@ -1,6 +1,6 @@
 # API: ToDoList
 
-In de map ToDoList is een eenvoudige applicatie te vinden. Met deze applicatie is het mogelijk een ToDoList bij te houden. De applicatie is ontwikkeld in .NET core 8.0. Dit is een voorbeeld van hoe een applicatie eruit zou kunnen zien in lagen.
+In de map ToDoList is een eenvoudige applicatie te vinden. Met deze applicatie is het mogelijk een ToDoList bij te houden. De applicatie is ontwikkeld in .NET core 9.0. Dit is een voorbeeld van hoe een applicatie eruit zou kunnen zien in lagen.
 Zie laatste hoofdstuk hieronder met "verder lezen" links over diverse onderwerpen uit deze opdracht.
 
 ## Uitleg bestaande appplicatie
