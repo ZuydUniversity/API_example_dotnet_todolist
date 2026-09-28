@@ -43,18 +43,20 @@ namespace ToDoListModel.DataLayer
             try
             {
                 string file = File.ReadAllText(tasksFileName);
-                if (!string.IsNullOrEmpty(file))
+                if (!string.IsNullOrWhiteSpace(file))
                 {
-                    tasks = JsonSerializer.Deserialize<List<ToDoTask>>(file);
+                    // ensure we never assign null to tasks
+                    tasks = JsonSerializer.Deserialize<List<ToDoTask>>(file) ?? new List<ToDoTask>();
                 }
                 else
                 { 
-                    tasks = new();
+                    tasks = new List<ToDoTask>();
                 }
             }
             catch (Exception)
             {
-                tasks?.Clear();
+                // on error ensure tasks is an empty list (avoid NullReferenceException)
+                tasks = new List<ToDoTask>();
             }
         }
 
@@ -63,7 +65,8 @@ namespace ToDoListModel.DataLayer
         /// </summary>
         private void SaveToFile()
         {
-            File.WriteAllText(tasksFileName, JsonSerializer.Serialize(tasks));
+            // guard against null just in case
+            File.WriteAllText(tasksFileName, JsonSerializer.Serialize(tasks ?? new List<ToDoTask>()));
 
         }
 
